@@ -24,7 +24,7 @@ from openpyxl.utils import get_column_letter
 # --------------------------------------------------------------------------
 
 LEGAL_NAME = "CHOKAI, obrt za računalne i poslovne usluge, vl. Matko Stanković"
-ADDRESS = "Petrova 84, 10000 Zagreb, Hrvatska"
+ADDRESS = "Petrova 84, 10123 Zagreb, Hrvatska"
 OIB = "64389569095"
 MBO = "98086448"
 OBRTNICA = "21010143794"
