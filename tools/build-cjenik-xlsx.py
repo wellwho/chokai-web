@@ -28,7 +28,7 @@ ADDRESS = "Petrova 84, 10123 Zagreb, Hrvatska"
 OIB = "64389569095"
 MBO = "98086448"
 OBRTNICA = "21010143794"
-EMAIL = "wellwho@gmail.com"
+EMAIL = "info@chokai.hr"
 PHONE = "+385 98 738 460"
 
 VALID_FROM = dt.date(2026, 9, 20)
