@@ -1,0 +1,280 @@
+<!doctype html>
+<html lang="hr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Upute za Pages CMS | CHOKAI</title>
+<style>
+  :root {
+    --navy: #1A2542; --orange: #F28A15; --orange-ink: #B35F00; --muted-dim: #5F6B8C;
+    --paper: #FFFFFF; --ink: #1A2542; --text: #3A4566; --soft: #F3F5FA; --warm: #FEF4E8; --rule: #DCE1EE;
+    --bg: #EEF1F7;
+  }
+  * { box-sizing: border-box; }
+  html { -webkit-text-size-adjust: 100%; }
+  body { margin: 0; background: var(--bg); color: var(--text);
+    font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    font-size: 16px; line-height: 1.6; }
+  .doc { max-width: 820px; margin: 0 auto; background: var(--paper); padding: 0 16px 40px; }
+  @media (min-width: 700px) { body { padding: 32px 16px; } .doc { padding: 0 56px 56px; border-radius: 16px; box-shadow: 0 10px 40px rgb(26 37 66 / .12); overflow: hidden; } }
+  header.cover { margin: 0 -16px 32px; padding: 28px 16px 28px; border-top: 6px solid var(--orange); border-bottom: 1px solid var(--rule); }
+  @media (min-width: 700px) { header.cover { margin: 0 -56px 40px; padding: 44px 56px 36px; } }
+  .cover .logo { width: 170px; height: auto; display: block; }
+  .cover .eyebrow { margin-top: 32px; }
+  .cover h1 { font-size: clamp(30px, 6vw, 44px); letter-spacing: -.02em; line-height: 1.1; margin: 6px 0 14px; }
+  .cover .sub { font-size: 18px; max-width: 620px; margin: 0 0 22px; }
+  .cover .meta { display: flex; flex-wrap: wrap; gap: 12px 32px; font-size: 15px; color: var(--ink); }
+  .cover .meta span { display: block; color: var(--muted-dim); font-size: 12px; text-transform: uppercase; letter-spacing: .1em; }
+  .pdf { display: inline-block; margin-top: 22px; background: var(--navy); color: #fff; text-decoration: none; font-weight: 600; padding: 10px 18px; border-radius: 999px; font-size: 15px; word-break: normal; }
+  .pdf:hover { background: #2A3966; }
+  h1, h2, h3 { color: var(--ink); line-height: 1.2; margin: 0; }
+  h2 { font-size: 26px; letter-spacing: -.01em; margin: 0 0 14px; }
+  h2 .num { color: var(--orange); margin-right: 10px; }
+  h3 { font-size: 18px; margin: 24px 0 6px; }
+  p { margin: 0 0 12px; }
+  ul, ol { margin: 0 0 12px; padding-left: 20px; }
+  li { margin: 0 0 6px; }
+  li::marker { color: var(--orange); font-weight: 700; }
+  strong { color: var(--ink); }
+  a { color: var(--orange-ink); overflow-wrap: anywhere; }
+  .ui { font-family: ui-monospace, "SF Mono", Menlo, monospace; font-size: .86em; background: var(--soft); border: 1px solid var(--rule); border-radius: 5px; padding: 1px 5px; color: var(--ink); white-space: nowrap; }
+  section { margin-bottom: 44px; }
+  .lead { font-size: 18px; color: var(--ink); }
+  .eyebrow { font-size: 12px; font-weight: 700; letter-spacing: .14em; text-transform: uppercase; color: var(--orange-ink); margin-bottom: 6px; }
+  .small { font-size: 14px; color: var(--muted-dim); }
+  .cards { display: grid; grid-template-columns: 1fr; gap: 12px; margin: 16px 0 8px; }
+  @media (min-width: 600px) { .cards { grid-template-columns: 1fr 1fr; } }
+  .card { background: var(--soft); border-radius: 12px; padding: 16px 18px; border-left: 5px solid var(--orange); }
+  .card h3 { margin: 0 0 4px; font-size: 17px; }
+  .card p { margin: 0; font-size: 15px; }
+  .table-wrap { overflow-x: auto; margin: 12px 0 16px; }
+  table { width: 100%; border-collapse: collapse; font-size: 15px; }
+  th, td { text-align: left; vertical-align: top; padding: 9px 10px; border-bottom: 1px solid var(--rule); }
+  thead th { background: var(--soft); color: var(--ink); font-size: 12px; letter-spacing: .1em; text-transform: uppercase; border-bottom: 3px solid var(--orange); }
+  tbody th { color: var(--ink); font-weight: 600; }
+  @media (max-width: 599px) {
+    table, tbody, tr, th, td { display: block; width: auto; }
+    thead { display: none; }
+    tr { border-bottom: 1px solid var(--rule); padding: 10px 0; }
+    th, td { border: 0; padding: 2px 0; }
+  }
+  .links { border: 1px solid var(--rule); border-radius: 12px; padding: 4px 18px; margin: 16px 0; }
+  .links > div { display: grid; grid-template-columns: 1fr; gap: 2px; padding: 12px 0; border-top: 1px solid var(--rule); }
+  @media (min-width: 600px) { .links > div { grid-template-columns: 170px 1fr; gap: 12px; } }
+  .links > div:first-child { border-top: 0; }
+  .links b { color: var(--ink); }
+  .links span { display: block; font-size: 14px; color: var(--muted-dim); }
+  .steps { list-style: none; padding: 0; counter-reset: s; margin: 12px 0 16px; }
+  .steps > li { counter-increment: s; position: relative; padding: 0 0 0 42px; margin: 0 0 14px; }
+  .steps > li::before { content: counter(s); position: absolute; left: 0; top: 0; width: 28px; height: 28px; border-radius: 50%; background: var(--orange); color: #fff; font-weight: 700; font-size: 15px; display: flex; align-items: center; justify-content: center; }
+  figure { margin: 18px 0 24px; }
+  figure img { display: block; width: 100%; height: auto; border: 1px solid var(--rule); border-radius: 10px; }
+  figure.narrow img { max-width: 520px; margin: 0 auto; }
+  figcaption { font-size: 14px; color: var(--muted-dim); margin-top: 8px; }
+  figcaption b { color: var(--orange-ink); }
+  .callout { background: var(--warm); border-left: 5px solid var(--orange); border-radius: 12px; padding: 16px 20px; margin: 16px 0; }
+  .callout p { margin: 0; }
+  .status { display: inline-block; font-weight: 700; white-space: nowrap; }
+  .company { margin-top: 32px; padding-top: 16px; border-top: 1px solid var(--rule); font-size: 13px; color: var(--muted-dim); }
+</style>
+</head>
+<body>
+<main class="doc">
+  <header class="cover">
+    <img class="logo" src="img/chokai-logo-light.png" alt="CHOKAI" width="881" height="329">
+    <div class="eyebrow">Za Hanu · listopad 2026.</div>
+    <h1>Kako pregledati i odobriti blog članke</h1>
+    <p class="sub">Upute za Pages CMS, alat u kojem uređuješ tekstove nove stranice. Kako se prijaviti, gdje je što, i kako članak napisan iz videa Doktorice Četkice pregledati, ispraviti i odobriti.</p>
+    <div class="meta">
+      <div><span>Za</span>Hana Stanković, K2 Dentalna poliklinika</div>
+      <div><span>Od</span>Matko, CHOKAI</div>
+      <div><span>Datum</span>14. listopada 2026.</div>
+    </div>
+    <a class="pdf" href="Upute-CMS-K2-2026-10.pdf" download>Preuzmi PDF</a>
+  </header>
+
+  <!-- 1. Ukratko -->
+  <section>
+    <h2><span class="num">1</span>Ukratko</h2>
+    <p class="lead">Rade se dvije stvari, na dva mjesta: na <strong>pregledu</strong> čitaš članke onako kako će izgledati na stranici, a u <strong>CMS-u</strong> ih ispravljaš i odobravaš.</p>
+    <div class="cards">
+      <div class="card"><h3>Pregled stranice</h3><p>Nova stranica kakva će biti, s člancima koji još čekaju odobrenje. Samo za čitanje. Ne treba prijava.</p></div>
+      <div class="card"><h3>Pages CMS</h3><p>Ovdje mijenjaš tekst članka i njegov status. Prijava e-mailom i kodom, bez lozinke.</p></div>
+      <div class="card"><h3>Ti odlučuješ</h3><p>Članak ide javno samo kad mu postaviš status <span class="status">🟢 Odobreno</span>. Ništa drugo ne ide javno.</p></div>
+      <div class="card"><h3>Ništa se ne može pokvariti</h3><p>Svako spremanje pamti se kao nova verzija. Svaku promjenu mogu vratiti.</p></div>
+    </div>
+  </section>
+
+  <!-- 2. Poveznice -->
+  <section>
+    <h2><span class="num">2</span>Poveznice</h2>
+    <p>Spremi ih u oznake (favorite) u pregledniku.</p>
+    <div class="links">
+      <div><b>Pregled stranice</b><div><a href="https://feat-privacy-policy-k2-dental-web.nameless-flower-350b.workers.dev/blog/">feat-privacy-policy-k2-dental-web.nameless-flower-350b.workers.dev/blog/</a><span>Nova stranica s nacrtima članaka. Adresa je dugačka i privremena; prava adresa (www.k2dental.hr) dolazi kad stranica krene.</span></div></div>
+      <div><b>Pages CMS: članci</b><div><a href="https://app.pagescms.org/wellwho/k2-dental-web/main/collection/blog-video">app.pagescms.org/wellwho/k2-dental-web/main/collection/blog-video</a><span>Ravno na popis članaka iz videa. Ako nisi prijavljena, prvo te traži prijavu.</span></div></div>
+      <div><b>Pages CMS: početna</b><div><a href="https://app.pagescms.org">app.pagescms.org</a><span>Ako se izgubiš: odavde odabereš projekt <b>k2-dental-web</b>.</span></div></div>
+    </div>
+  </section>
+
+  <!-- 3. Pristup -->
+  <section>
+    <h2><span class="num">3</span>Pristup: tko što vidi i kako se prijaviti</h2>
+
+    <h3>Pregled stranice: bez prijave</h3>
+    <ul>
+      <li>Otvara se bez lozinke. Tko ima poveznicu, vidi stranicu.</li>
+      <li>Google je ne prikazuje u rezultatima pretrage, i nitko je ne može naći slučajno.</li>
+      <li>Poveznicu ipak <strong>ne šalji dalje</strong>: na pregledu su i nacrti koje još nisi odobrila.</li>
+    </ul>
+
+    <h3>Pages CMS: pozivnica i kod na e-mail</h3>
+    <ul>
+      <li><strong>Pozivnicu šaljem ja.</strong> Na svoj e-mail dobiješ poruku na engleskom: <em>„You were added to "k2-dental-web" on Pages CMS“</em>. Bez nje se ne možeš prijaviti.</li>
+      <li><strong>Nema lozinke ni GitHub računa.</strong> Kod svake prijave upišeš svoj e-mail, a Pages CMS ti pošalje <strong>šesteroznamenkasti kod</strong>. Kod vrijedi <strong>5 minuta</strong>.</li>
+      <li>Kao pozvana urednica možeš mijenjati tekstove i slike. Postavke stranice i popis korisnika ne vidiš i ne možeš ih promijeniti.</li>
+      <li>Pages CMS je vanjski alat (pagescms.org) koji stranica koristi. Ne plaća se i ne treba ništa instalirati; radi u pregledniku, i na mobitelu.</li>
+    </ul>
+
+    <h3>Prva prijava, korak po korak</h3>
+    <ol class="steps">
+      <li>Otvori poveznicu <b>Pages CMS: članci</b> iz poglavlja 2.</li>
+      <li>Ispod gumba <span class="ui">Sign in with GitHub</span> upiši svoj e-mail (onaj na koji je stigla pozivnica) i klikni <span class="ui">Continue with email</span>. Gumb za GitHub ne trebaš.</li>
+      <li>Otvori e-mail s naslovom <em>„Your Pages CMS temporary code is …“</em>. Ako ga nema za minutu, pogledaj neželjenu poštu (spam).</li>
+      <li>Upiši šest znamenki iz poruke. Ako je prošlo više od 5 minuta, zatraži novi kod.</li>
+      <li>Otvara se popis članaka. Prijava traje neko vrijeme, pa kod ne trebaš svaki put.</li>
+    </ol>
+    <figure class="narrow">
+      <img src="img/cms-prijava.png" alt="Zaslon za prijavu u Pages CMS">
+      <figcaption><b>Prijava.</b> Upiši e-mail u polje <em>Email</em> i klikni <em>Continue with email</em>. Gumb <em>Sign in with GitHub</em> preskoči.</figcaption>
+    </figure>
+  </section>
+
+  <!-- 4. Snalaženje -->
+  <section>
+    <h2><span class="num">4</span>Snalaženje u CMS-u</h2>
+    <p>CMS je na engleskom, a sadržaj je na hrvatskom. Lijevo je izbornik s dijelovima stranice; desno je ono što si otvorila.</p>
+    <figure>
+      <img src="img/cms-popis.jpg" alt="Pages CMS: izbornik lijevo i popis članaka iz videa">
+      <figcaption><b>Popis članaka.</b> Lijevo izbornik, desno članci sa statusom, naslovom i datumom. Dio <em>Admin</em> na dnu izbornika (Actions, Collaborators, Configuration) vidim samo ja; ti ga nećeš imati.</figcaption>
+    </figure>
+
+    <h3>Što je u izborniku</h3>
+    <div class="table-wrap"><table>
+      <thead><tr><th>U izborniku piše</th><th>Što je to</th><th>Diraš li?</th></tr></thead>
+      <tbody>
+        <tr><th>Blog (video posts)</th><td>Članci napisani iz videa Doktorice Četkice. <strong>Ovdje radiš.</strong></td><td>Da</td></tr>
+        <tr><th>Blog (video posts, English)</th><td>Engleske verzije odobrenih članaka. Dolaze kasnije; javit ću ti.</td><td>Kasnije</td></tr>
+        <tr><th>Obavijest</th><td>Traka ispod zaglavlja na svim stranicama (npr. godišnji odmor). Sada je uključena s probnim tekstom.</td><td>Po dogovoru</td></tr>
+        <tr><th>Cjenik</th><td>Cjenik usluga, na hrvatskom i engleskom.</td><td>Po dogovoru</td></tr>
+        <tr><th>Homepage</th><td>Svi tekstovi i slike početne stranice.</td><td>Po dogovoru</td></tr>
+        <tr><th>Clinic details</th><td>Adresa, telefoni, radno vrijeme, Google ocjena.</td><td>Po dogovoru</td></tr>
+        <tr><th>Politika privatnosti, Privacy policy</th><td>Pravni tekst o zaštiti podataka.</td><td>Po dogovoru</td></tr>
+        <tr><th>Homepage images, Blog images</th><td>Spremnik slika. Slike se dodaju iz samog članka; ovdje ne trebaš ulaziti.</td><td>Ne</td></tr>
+      </tbody>
+    </table></div>
+    <div class="callout">
+      <p><strong>Za početak radi samo u „Blog (video posts)“.</strong> Promjene u ostalim dijelovima mijenjaju cijelu stranicu, a kad stranica krene, odmah su javne. Za njih se prvo čujemo.</p>
+    </div>
+
+    <h3>Popis članaka</h3>
+    <ul>
+      <li><strong>Redoslijed:</strong> najnoviji video je na vrhu. Klikom na naslov stupca <span class="ui">Status</span> grupiraš članke po statusu, pa su svi koji čekaju zajedno.</li>
+      <li><strong>Traženje:</strong> polje <span class="ui">Search entries...</span> iznad popisa traži po naslovu.</li>
+      <li><strong>Otvaranje:</strong> klikni <span class="ui">Edit</span> desno od članka.</li>
+      <li><strong>Ne briši i ne dodaj članke.</strong> Nove članke iz videa dodajem ja, u skupinama po 10 do 15. Zato ne trebaš zeleni gumb <span class="ui">Add an entry</span> ni izbornik s tri točkice uz članak.</li>
+    </ul>
+  </section>
+
+  <!-- 5. Statusi -->
+  <section>
+    <h2><span class="num">5</span>Statusi članka</h2>
+    <div class="table-wrap"><table>
+      <thead><tr><th>Status</th><th>Što znači</th><th>Gdje se vidi</th></tr></thead>
+      <tbody>
+        <tr><th><span class="status">🟡 Čeka pregled</span></th><td>Novi nacrt, još ga nisi pročitala. Svi novi članci dolaze s ovim statusom.</td><td>Samo na pregledu</td></tr>
+        <tr><th><span class="status">🔴 Treba izmjene</span></th><td>Pročitala si ga i nešto ne valja, a ne stigneš ili ne želiš sama ispraviti. U <em>Review notes</em> napiši što; ja ću popraviti.</td><td>Samo na pregledu</td></tr>
+        <tr><th><span class="status">🟢 Odobreno</span></th><td>Članak je stručno točan i može ići javno.</td><td>Na pregledu; javno kad krene blog s videima</td></tr>
+      </tbody>
+    </table></div>
+    <p class="small">Članci iz videa za sada nisu uključeni na javnoj stranici ni kad su odobreni. Uključit ćemo ih zajedno kad bude dovoljno odobrenih članaka.</p>
+  </section>
+
+  <!-- 6. Pregled i odobravanje -->
+  <section>
+    <h2><span class="num">6</span>Kako pregledati i odobriti članak</h2>
+    <p>Najlakše je s dva prozora ili dvije kartice: u jednoj pregled stranice, u drugoj CMS.</p>
+    <ol class="steps">
+      <li><b>Pročitaj članak na pregledu.</b> Na pregledu otvori <em>Blog</em> i klikni na članak. Nacrti imaju ružičastu traku <em>„Nacrt: čeka odobrenje“</em>. Ovako ćeš ga najlakše pročitati: kako će ga vidjeti pacijent, s videom, sažetkom i pitanjima na dnu.</li>
+      <li><b>Otvori isti članak u CMS-u.</b> U <em>Blog (video posts)</em> klikni <span class="ui">Edit</span> desno od njegova naslova.</li>
+      <li><b>Pročitaj „Review notes“.</b> Tu sam zapisao što treba provjeriti: medicinske tvrdnje, mjesta gdje se u videu nije dobro čulo, preduge naslove. Kad provjeriš točku, obriši je.</li>
+      <li><b>Ispravi što treba.</b> Tekst članka je u polju <span class="ui">Article</span>, na dnu. Uređuješ ga kao u Wordu: podebljano, naslovi, popisi.</li>
+      <li><b>Postavi datum pregleda.</b> U <span class="ui">Medically reviewed on</span> odaberi današnji datum. Ispod tvog imena u članku tada piše „Stručno pregledano“.</li>
+      <li><b>Promijeni status.</b> U <span class="ui">Status</span> odaberi <span class="status">🟢 Odobreno</span>, ili <span class="status">🔴 Treba izmjene</span> s napomenom u <em>Review notes</em>.</li>
+      <li><b>Spremi.</b> Klikni <span class="ui">Save</span> gore desno. Bez toga se promjene ne pamte.</li>
+      <li><b>Provjeri na pregledu.</b> Pregled se osvježi sam za <strong>2 do 4 minute</strong>. Zatim osvježi stranicu u pregledniku. Kod odobrenog članka nestane ružičasta traka.</li>
+    </ol>
+    <figure>
+      <img src="img/pregled-clanak.jpg" alt="Članak na pregledu stranice s trakom Nacrt: čeka odobrenje">
+      <figcaption><b>Članak na pregledu.</b> Ružičasta traka znači da članak još nije odobren. Svijetla traka iznad nje je obavijest o godišnjem odmoru (probni tekst).</figcaption>
+    </figure>
+    <figure>
+      <img src="img/cms-clanak.jpg" alt="Pages CMS: otvoren članak s poljima Status i Review notes">
+      <figcaption><b>Članak u CMS-u.</b> Status i napomene su na vrhu. Gore desno: sat (ranije verzije članka), zeleni gumb <em>Save</em> i izbornik s tri točkice, koji ne trebaš.</figcaption>
+    </figure>
+  </section>
+
+  <!-- 7. Polja -->
+  <section>
+    <h2><span class="num">7</span>Što znači koje polje</h2>
+    <p>Polja su poredana kao u CMS-u. Najvažnija su označena podebljano; ostala uglavnom ne trebaš dirati.</p>
+    <div class="table-wrap"><table>
+      <thead><tr><th>U CMS-u piše</th><th>Što je to</th></tr></thead>
+      <tbody>
+        <tr><th><strong>Status</strong></th><td>🟡 / 🔴 / 🟢, vidi poglavlje 5.</td></tr>
+        <tr><th><strong>Review notes</strong></th><td>Moje napomene za tebe. Nikad se ne prikazuju na stranici. Obriši ih kad ih riješiš.</td></tr>
+        <tr><th><strong>Title</strong></th><td>Naslov članka.</td></tr>
+        <tr><th>Summary (search engines)</th><td>Kratki opis koji Google prikazuje ispod naslova. 70 do 155 znakova.</td></tr>
+        <tr><th>Title for search engines</th><td>Kraći naslov za Google, do oko 48 znakova. Prazno = koristi se naslov.</td></tr>
+        <tr><th>Date</th><td>Datum kad je video izašao na YouTubeu. Ne mijenjaj.</td></tr>
+        <tr><th>YouTube video link</th><td>Video na kojem se članak temelji; prikazuje se na vrhu članka. Ne mijenjaj.</td></tr>
+        <tr><th>Video poster image / description</th><td>Sličica videa i njezin opis za slijepe i slabovidne. Ne mijenjaj.</td></tr>
+        <tr><th>Author</th><td>Autor ispod naslova, sa slikom. Uvijek ti.</td></tr>
+        <tr><th><strong>Medically reviewed on</strong></th><td>Datum stručnog pregleda. Postavi ga kad odobriš članak.</td></tr>
+        <tr><th>Topics</th><td>Jedna do tri teme. Prema njima se ispod članka nude srodni članci.</td></tr>
+        <tr><th><strong>In short</strong></th><td>Okvir „Ukratko“ iznad članka: 3 do 5 kratkih točaka. Provjeri da su točne.</td></tr>
+        <tr><th><strong>Frequently asked questions</strong></th><td>Pitanja i odgovori ispod članka. Google ih može prikazati u rezultatima, pa moraju biti stručno točni.</td></tr>
+        <tr><th>Video length</th><td>Popunjava se samo. Ne mijenjaj.</td></tr>
+        <tr><th><strong>Article</strong></th><td>Tekst članka.</td></tr>
+      </tbody>
+    </table></div>
+  </section>
+
+  <!-- 8. Na što paziti -->
+  <section>
+    <h2><span class="num">8</span>Na što paziti</h2>
+    <ul>
+      <li><strong>Oglašavanje zdravstvenih usluga.</strong> Članak ne smije obećavati rezultat („bezbolno“, „trajno“, „100 %“) ni hvaliti kliniku kao najbolju. Takve rečenice sam označio u <em>Review notes</em>; ti odlučuješ kako ih napisati.</li>
+      <li><strong>Članak piše iz videa, ne iz tvojih usta.</strong> Tvoje ime spominje se najviše jednom, na početku. Dalje članak samo iznosi činjenice iz videa.</li>
+      <li><strong>Krivo prepisane riječi.</strong> Tekst nastaje iz zvuka videa, pa stručni izrazi ponekad budu krivo prepoznati. Ta mjesta su također u <em>Review notes</em>.</li>
+      <li><strong>Naslov članka možeš mijenjati.</strong> Adresa članka (URL) ostaje ista, pa se ništa ne kvari.</li>
+      <li><strong>Pogriješila si?</strong> Ne brini. Javi mi koji članak, i vratit ću prethodnu verziju.</li>
+    </ul>
+  </section>
+
+  <!-- 9. Pomoć -->
+  <section>
+    <h2><span class="num">9</span>Pomoć</h2>
+    <p>Za bilo kakvo pitanje, ili ako nešto ne radi, javi mi se: <strong>info@chokai.hr</strong> ili <strong>+385 98 738 460</strong>. Najbrže je da mi pošalješ naslov članka i snimku zaslona.</p>
+    <figure>
+      <img src="img/pregled-blog.jpg" alt="Popis članaka na pregledu stranice">
+      <figcaption><b>Blog na pregledu.</b> Svi članci na jednom popisu, najnoviji prvi.</figcaption>
+    </figure>
+    <div class="company">
+      CHOKAI, obrt za računalne i poslovne usluge, vl. Matko Stanković · Petrova 84, 10123 Zagreb, Hrvatska ·
+      info@chokai.hr · +385 98 738 460
+    </div>
+  </section>
+</main>
+</body>
+</html>
